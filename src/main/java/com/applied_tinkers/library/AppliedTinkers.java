@@ -1,6 +1,11 @@
 package com.applied_tinkers.library;
 
+import com.applied_tinkers.library.Blocks.ModBlocks;
+import com.applied_tinkers.library.Fluids.ModFluidTypes;
+import com.applied_tinkers.library.Fluids.ModFluids;
+import com.applied_tinkers.library.Handlers.NetworkHandler;
 import com.applied_tinkers.library.Items.ModItems;
+import com.applied_tinkers.library.Items.ModifierRegistry;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -27,9 +32,12 @@ public class AppliedTinkers
 
 //        ModEffects.EFFECTS.register(modEventBus);
         ModItems.register(modEventBus);
-//        ModBlocks.register(modEventBus);
+        ModifierRegistry.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
 //        ModRecipeRegister.SERIALIZERS.register(modEventBus);
-//        ModCreativeModeTabsRegistry.TABS.register(modEventBus);
+        ModCreativeModeTabsRegistry.TABS.register(modEventBus);
 
 
 
@@ -41,8 +49,11 @@ public class AppliedTinkers
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
+        NetworkHandler.register();
+
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
+
 
 
     }

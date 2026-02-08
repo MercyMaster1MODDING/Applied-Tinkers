@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "applied_tinkers:block/liquid_essence_of_rebirth"
+    },
+    {
+      "type": "single",
+      "resource": "applied_tinkers:block/liquid_essence_of_rebirth_flow"
+    }
+  ]
+}
