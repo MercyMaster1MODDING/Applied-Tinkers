@@ -1,5 +1,8 @@
 {
   "modifier.applied_tinkers.phoenix": "Phoenix",
   "modifier.applied_tinkers.phoenix.flavor": "You died? NOT ALLOWED!",
-  "modifier.applied_tinkers.phoenix.description": "Brings you back to half a heart after death"
+  "modifier.applied_tinkers.phoenix.description": "Brings you back to half a heart after death",
+  "item.applied_tinkers.fluid_cannon": "Fluid Cannon",
+  "item.applied_tinkers.piggy_backpack": "Piggy Backpack",
+  "item.applied_tinkers.backpack_core": "Backpack Core"
 }

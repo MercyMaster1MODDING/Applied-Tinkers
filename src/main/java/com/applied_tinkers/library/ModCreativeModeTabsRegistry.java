@@ -21,6 +21,10 @@ public class ModCreativeModeTabsRegistry {
 
                         output.accept(ModItems.PHOENIX_FEATHER.get());
 
+                        output.accept(ModItems.BACKPACK_CORE.get());
+                        output.accept(ModItems.FLUID_CANNON.get());
+                        output.accept(ModItems.PIGGY_BACKPACK.get());
+
                         output.accept(ModItems.LIQUID_ESSENCE_OF_REBIRTH_BUCKET.get());
                     })
                     .build());

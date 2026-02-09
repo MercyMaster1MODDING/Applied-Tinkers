@@ -3,7 +3,6 @@ package com.applied_tinkers.library.Items.ModUpgrades.Modules.Armor;
 import com.applied_tinkers.library.Handlers.NetworkHandler;
 import com.applied_tinkers.library.Packets.PhoenixPacket;
 import net.minecraft.client.Minecraft;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
@@ -14,8 +13,9 @@ import slimeknights.tconstruct.library.module.ModuleHook;
 
 import java.util.List;
 
-public class PhoenixModule implements ModifierModule{
+public record PhoenixModule() implements ModifierModule{
 
+    private static boolean hasPhoenixModule;
     private static final List<ModuleHook<?>> DEFAULT_HOOKS =
             HookProvider.<PhoenixModule>defaultHooks();
 
@@ -40,8 +40,5 @@ public class PhoenixModule implements ModifierModule{
     private static Vec3 returnPos(Player player){
         return player.position();
     }
-
-
-
 
 }
