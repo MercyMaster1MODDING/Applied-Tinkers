@@ -25,6 +25,8 @@ public class ModCreativeModeTabsRegistry {
                         output.accept(ModItems.FLUID_CANNON.get());
                         output.accept(ModItems.PIGGY_BACKPACK.get());
 
+                        output.accept(ModItems.WATER_FLUID_CANNON_AMMO.get());
+
                         output.accept(ModItems.LIQUID_ESSENCE_OF_REBIRTH_BUCKET.get());
                     })
                     .build());

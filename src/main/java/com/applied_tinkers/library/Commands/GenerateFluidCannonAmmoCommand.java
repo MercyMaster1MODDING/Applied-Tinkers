@@ -8,17 +8,12 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
-import net.minecraft.commands.arguments.StringRepresentableArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.WaterFluid;
 import net.minecraftforge.registries.ForgeRegistries;
-import org.jline.reader.impl.DefaultParser;
-
-import java.util.List;
 
 public class GenerateFluidCannonAmmoCommand {
 

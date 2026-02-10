@@ -23,7 +23,7 @@ public class PhoenixHandler {
 
         if (event.getEntity() instanceof Player player){
             ItemStack player_chest_item = player.getItemBySlot(EquipmentSlot.CHEST);
-            if (player_chest_item.is(ModTags.HAS_PHOENIX_MODIFIER)){
+            if (player_chest_item.is(ModTags.Items.HAS_PHOENIX_MODIFIER)){
 
                 event.setCanceled(true);
                 PhoenixModule.respawnPlayer(player);

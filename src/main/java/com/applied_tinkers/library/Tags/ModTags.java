@@ -8,10 +8,14 @@ import net.minecraft.world.item.Item;
 
 public class ModTags {
 
-    public static final TagKey<Item> HAS_PHOENIX_MODIFIER = TagKey.create(
-            Registries.ITEM, new ResourceLocation(AppliedTinkers.MOD_ID, "has_phoenix_modifier"));
+    public static class Items {
+        public static final TagKey<Item> HAS_PHOENIX_MODIFIER = TagKey.create(
+                Registries.ITEM, new ResourceLocation(AppliedTinkers.MOD_ID, "has_phoenix_modifier"));
 
-    public static final TagKey<Item> IS_CANNON_AMMO = TagKey.create(
-            Registries.ITEM, new ResourceLocation(AppliedTinkers.MOD_ID, "is_fluid_cannon_ammo"));
+        public static final TagKey<Item> IS_CANNON_AMMO = TagKey.create(
+                Registries.ITEM, new ResourceLocation(AppliedTinkers.MOD_ID, "is_fluid_cannon_ammo"));
+
+    }
+
 
 }

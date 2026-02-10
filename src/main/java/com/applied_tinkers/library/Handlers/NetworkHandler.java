@@ -1,6 +1,7 @@
 package com.applied_tinkers.library.Handlers;
 
 import com.applied_tinkers.library.AppliedTinkers;
+import com.applied_tinkers.library.Packets.FluidCannonPacket;
 import com.applied_tinkers.library.Packets.PhoenixPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkRegistry;
@@ -22,6 +23,11 @@ public class NetworkHandler {
                 .encoder(PhoenixPacket::encode)
                 .decoder(PhoenixPacket::decode)
                 .consumerMainThread(PhoenixPacket::handle)
+                .add();
+        CHANNEL.messageBuilder(FluidCannonPacket.class, id++, NetworkDirection.PLAY_TO_SERVER)
+                .encoder(FluidCannonPacket::encode)
+                .decoder(FluidCannonPacket::decode)
+                .consumerMainThread(FluidCannonPacket::handle)
                 .add();
     }
 }

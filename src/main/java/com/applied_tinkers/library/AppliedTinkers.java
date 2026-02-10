@@ -41,8 +41,6 @@ public class AppliedTinkers
 
 
 
-
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
