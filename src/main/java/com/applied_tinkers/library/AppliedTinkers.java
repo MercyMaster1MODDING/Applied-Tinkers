@@ -1,6 +1,8 @@
 package com.applied_tinkers.library;
 
 import com.applied_tinkers.library.Blocks.ModBlocks;
+import com.applied_tinkers.library.Entities.ItemEntities.FluidCannonAmmoProjectile;
+import com.applied_tinkers.library.Entities.ModEntities;
 import com.applied_tinkers.library.Fluids.ModFluidTypes;
 import com.applied_tinkers.library.Fluids.ModFluids;
 import com.applied_tinkers.library.Handlers.NetworkHandler;
@@ -36,8 +38,10 @@ public class AppliedTinkers
         ModBlocks.register(modEventBus);
         ModFluidTypes.register(modEventBus);
         ModFluids.register(modEventBus);
+        ModEntities.register(modEventBus);
 //        ModRecipeRegister.SERIALIZERS.register(modEventBus);
         ModCreativeModeTabsRegistry.TABS.register(modEventBus);
+
 
 
 

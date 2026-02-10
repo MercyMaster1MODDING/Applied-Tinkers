@@ -32,7 +32,7 @@ public class ModItems {
     //The fluid cannon takes fluids from the piggy backpack and other tanks in the player's inventory
     //and it solidifies them into balls/cannons
     public static final RegistryObject<FluidCannonItem> FLUID_CANNON = ITEMS.register("fluid_cannon",
-            () -> new FluidCannonItem(new Item.Properties(), null, null));
+            () -> new FluidCannonItem(new Item.Properties()));
 
     public static final RegistryObject<FluidCannonAmmoItem> FLUID_CANNON_AMMO = ITEMS.register("fluid_cannon_ammo",
             () -> new FluidCannonAmmoItem(new Item.Properties()));

@@ -1,21 +1,30 @@
 package com.applied_tinkers.library.Entities.ItemEntities;
 
-import com.applied_tinkers.library.DamageSources.DamageTypesRegistry;
 import com.applied_tinkers.library.DamageSources.ModDamageSources;
 import com.applied_tinkers.library.Items.FluidCannon.Ammo.FluidCannonAmmoItem;
-import com.applied_tinkers.library.Items.FluidCannon.FluidCannonAmmoItemAbstractClass;
-import net.minecraft.client.Minecraft;
+import com.applied_tinkers.library.Items.ModItems;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
+import net.minecraft.world.entity.projectile.ItemSupplier;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
-public class FluidCannonAmmoProjectile extends AbstractHurtingProjectile {
+public class FluidCannonAmmoProjectile extends AbstractHurtingProjectile implements ItemSupplier {
 
     private float ammo_damage;
-    public FluidCannonAmmoProjectile(EntityType<? extends AbstractHurtingProjectile> entityType, Level level) {
+
+    private final ItemStack ammoStack;
+    public FluidCannonAmmoProjectile(EntityType<FluidCannonAmmoProjectile> entityType, Level level, ItemStack ammoStack) {
         super(entityType, level);
+        this.ammoStack = ammoStack;
+
+    }
+
+    public FluidCannonAmmoProjectile(EntityType<FluidCannonAmmoProjectile> entityType, Level level) {
+        super(entityType, level);
+        this.ammoStack = ModItems.FLUID_CANNON_AMMO.get().getDefaultInstance();
     }
 
     @Override
@@ -39,6 +48,21 @@ public class FluidCannonAmmoProjectile extends AbstractHurtingProjectile {
     }
 
     public float getAmmo_damage() {
-        return ammo_damage;
+        return ammo_damage = 1;
+    }
+
+    @Override
+    protected float getInertia() {
+        return 0.95f;
+    }
+
+    @Override
+    public ItemStack getItem() {
+        return ammoStack;
+    }
+
+    @Override
+    public boolean isOnFire() {
+        return false;
     }
 }
