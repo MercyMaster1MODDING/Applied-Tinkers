@@ -52,46 +52,51 @@ public class FluidCannonItem extends ProjectileWeaponItem {
 
     @Override
     public void setDamage(ItemStack stack, int damage) {
-        damage = 1;
-        stack.getOrCreateTag().putInt("Damage", Math.max(0, damage));
+
+        stack.getOrCreateTag().putFloat("Damage", Math.max(0, damage));
     }
 
     public void sendProjectileFlying(Level level, Player player){
         if (level.isClientSide) return;
 
         level.playSound(null, player, SoundEvents.ARROW_SHOOT, SoundSource.MASTER, 2, 2);
-        ItemStack ammo = findAmmo(player);
-        FluidCannonAmmoProjectile projectile = new FluidCannonAmmoProjectile(
-                ModEntities.FLUID_CANNON_AMMO_ENTITY.get(), level, ammo);
-        ammo.shrink(1);
-        player.getInventory().setChanged();
-        projectile.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
-        float velocity = 3.0f;      // arrow speed
-        float inaccuracy = 1.0f;    // random spread
-        projectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0f, velocity, inaccuracy);
-        level.addFreshEntity(projectile);
+        ItemStack ammoStack = findCannonAmmo(player);
+        if (ammoStack.getItem() instanceof FluidCannonAmmoItemAbstractClass ammo) {
+            float damage = ammo.getAmmoDamage();
+            FluidCannonAmmoProjectile projectile = new FluidCannonAmmoProjectile(
+                    ModEntities.FLUID_CANNON_AMMO_ENTITY.get(), level, damage);
+
+            ammoStack.shrink(1);
+            player.getInventory().setChanged();
+            projectile.setPos(player.getX(), player.getEyeY() - 0.1, player.getZ());
+            float velocity = 3.0f;      // arrow speed
+            float inaccuracy = 1.0f;    // random spread
+            projectile.shootFromRotation(player, player.getXRot(), player.getYRot(), 0f, velocity, inaccuracy);
+            level.addFreshEntity(projectile);
+        }
     }
 
-    public ItemStack findAmmo(Player player) {
+    public ItemStack findCannonAmmo(Player player) {
         // Creative mode: no ammo required
-        if (player.getAbilities().instabuild) {
-            return ItemStack.EMPTY;
-        }
+//        if (player.getAbilities().instabuild) {
+//            return ItemStack.EMPTY;
+//        }
 
-        // Check offhand first
+        if (player == null) return ItemStack.EMPTY;
+
+        // Offhand
         ItemStack offhand = player.getOffhandItem();
-        if (offhand.getItem() instanceof FluidCannonAmmoItem) {
+        if (!offhand.isEmpty() && offhand.getItem() instanceof FluidCannonAmmoItemAbstractClass) {
             return offhand;
         }
 
-        // Check main inventory
+        // Main inventory
         for (ItemStack stack : player.getInventory().items) {
-            if (stack.getItem() instanceof FluidCannonAmmoItem) {
+            if (!stack.isEmpty() && stack.getItem() instanceof FluidCannonAmmoItemAbstractClass) {
                 return stack;
             }
         }
 
         return ItemStack.EMPTY;
     }
-
 }

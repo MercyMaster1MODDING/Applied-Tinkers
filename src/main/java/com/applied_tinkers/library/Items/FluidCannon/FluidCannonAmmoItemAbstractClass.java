@@ -1,33 +1,35 @@
 package com.applied_tinkers.library.Items.FluidCannon;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Fluid;
 
+import java.util.function.Supplier;
+
 public abstract class FluidCannonAmmoItemAbstractClass extends Item {
 
-    protected static float ammo_damage;
-    protected Fluid fluid;
-
-    public FluidCannonAmmoItemAbstractClass(Item.Properties properties, float ammo_damage, Fluid fluid){
+    private Float cachedAmmoDamage = null;
+    protected final Supplier<Fluid> fluidSupplier;
+    public FluidCannonAmmoItemAbstractClass(Item.Properties properties, Supplier<Fluid> fluidSupplier){
         super(properties);
-        this.ammo_damage = ammo_damage;
-        this.fluid = fluid;
+        this.fluidSupplier = fluidSupplier;
 
     }
 
-    public float getAmmoDamage(){
-
-        return ammo_damage;
-    };
+    public float getAmmoDamage() {
+        return setAmmoDamage();
+    }
 
     protected int getTemperature(){
-        return fluid.getFluidType().getTemperature();
+        return fluidSupplier.get().getFluidType().getTemperature();
     }
 
     protected float setAmmoDamage(){
         int temperature = getTemperature();
         float damage = Math.max(0.5f, temperature / 1000);
         return damage + (damage * 1.3f);
+    }
+
+    public Supplier<Fluid> getFluid() {
+        return fluidSupplier;
     }
 }

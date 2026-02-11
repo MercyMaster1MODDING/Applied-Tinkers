@@ -27,7 +27,6 @@ public class FluidCannonPacket {
 
     // Encoder
     public static void encode(FluidCannonPacket msg, FriendlyByteBuf buf) {
-
     }
 
     // Decoder

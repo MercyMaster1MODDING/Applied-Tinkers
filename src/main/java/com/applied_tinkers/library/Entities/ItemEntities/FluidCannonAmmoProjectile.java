@@ -1,8 +1,9 @@
 package com.applied_tinkers.library.Entities.ItemEntities;
 
 import com.applied_tinkers.library.DamageSources.ModDamageSources;
-import com.applied_tinkers.library.Items.FluidCannon.Ammo.FluidCannonAmmoItem;
-import com.applied_tinkers.library.Items.ModItems;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.AbstractHurtingProjectile;
@@ -13,18 +14,19 @@ import net.minecraft.world.phys.EntityHitResult;
 
 public class FluidCannonAmmoProjectile extends AbstractHurtingProjectile implements ItemSupplier {
 
-    private float ammo_damage;
+    private static final EntityDataAccessor<Float> ammo_damage =
+            SynchedEntityData.defineId(FluidCannonAmmoProjectile.class, EntityDataSerializers.FLOAT);
 
-    private final ItemStack ammoStack;
-    public FluidCannonAmmoProjectile(EntityType<FluidCannonAmmoProjectile> entityType, Level level, ItemStack ammoStack) {
-        super(entityType, level);
-        this.ammoStack = ammoStack;
-
-    }
+    private ItemStack ammoStack;
 
     public FluidCannonAmmoProjectile(EntityType<FluidCannonAmmoProjectile> entityType, Level level) {
         super(entityType, level);
-        this.ammoStack = ModItems.FLUID_CANNON_AMMO.get().getDefaultInstance();
+        this.ammoStack = ItemStack.EMPTY;
+    }
+    public FluidCannonAmmoProjectile(EntityType<FluidCannonAmmoProjectile> entityType, Level level, float damage) {
+        super(entityType, level);
+        this.entityData.set(ammo_damage, damage);
+
     }
 
     @Override
@@ -42,13 +44,13 @@ public class FluidCannonAmmoProjectile extends AbstractHurtingProjectile impleme
         Level level = entity.getEntity().level();
         ModDamageSources sources = new ModDamageSources(level.registryAccess());
         DamageSource source = sources.fluid_cannon_damage_source(null);
-        ammo_damage = getAmmo_damage();
 
-        entity.getEntity().hurt(source, ammo_damage);
+        entity.getEntity().hurt(source, getAmmoDamage());
     }
 
-    public float getAmmo_damage() {
-        return ammo_damage = 1;
+    @Override
+    public void tick() {
+        super.tick();
     }
 
     @Override
@@ -58,11 +60,29 @@ public class FluidCannonAmmoProjectile extends AbstractHurtingProjectile impleme
 
     @Override
     public ItemStack getItem() {
-        return ammoStack;
+        return ammoStack == null ? ItemStack.EMPTY : ammoStack;
     }
 
     @Override
     public boolean isOnFire() {
         return false;
+    }
+
+    @Override
+    protected boolean shouldBurn() {
+        return false;
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(ammo_damage, 0f);
+    }
+
+    public void setAmmoDamage(float damage) {
+        this.entityData.set(ammo_damage, damage);
+    }
+
+    public float getAmmoDamage() {
+        return this.entityData.get(ammo_damage);
     }
 }
