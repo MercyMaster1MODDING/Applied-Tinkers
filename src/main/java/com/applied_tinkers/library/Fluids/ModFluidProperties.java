@@ -1,20 +1,7 @@
 package com.applied_tinkers.library.Fluids;
 
-import com.applied_tinkers.library.AppliedTinkers;
 import com.applied_tinkers.library.Blocks.ModBlocks;
 import com.applied_tinkers.library.Items.ModItems;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluid;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.phys.Vec3;
-import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
 public class ModFluidProperties {
@@ -28,4 +15,24 @@ public class ModFluidProperties {
             )
                     .bucket(ModItems.LIQUID_ESSENCE_OF_REBIRTH_BUCKET)
                     .block(ModBlocks.LIQUID_ESSENCE_OF_REBIRTH_BLOCK);
+
+    public static final ForgeFlowingFluid.Properties MOLTEN_BLACKSTEEL_PROPERTIES =
+            new ForgeFlowingFluid.Properties(
+                    ModFluidTypes.MOLTEN_BLACKSTEEL_FLUID_TYPE,
+                    ModFluids.MOLTEN_BLACKSTEEL,
+                    ModFluids.MOLTEN_BLACKSTEEL_FLOWING
+
+                    )
+                    .bucket(ModItems.MOLTEN_BLACKSTEEL_BUCKET)
+                    .block(ModBlocks.MOLTEN_BLACKSTEEL_BLOCK);
+
+    public static final ForgeFlowingFluid.Properties MOLTEN_PITCH_BLACKSTEEL_PROPERTIES =
+            new ForgeFlowingFluid.Properties(
+                    ModFluidTypes.MOLTEN_PITCH_BLACKSTEEL_FLUID_TYPE,
+                    ModFluids.MOLTEN_PITCH_BLACKSTEEL,
+                    ModFluids.MOLTEN_PITCH_BLACKSTEEL_FLOWING
+
+            )
+                    .bucket(ModItems.MOLTEN_PITCH_BLACKSTEEL_BUCKET)
+                    .block(ModBlocks.MOLTEN_PITCH_BLACKSTEEL_BLOCK);
 }

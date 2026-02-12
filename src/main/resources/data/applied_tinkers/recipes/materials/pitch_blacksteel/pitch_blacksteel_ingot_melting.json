@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "applied_tinkers:pitch_blacksteel_ingot"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "applied_tinkers:molten_pitch_blacksteel"
+  },
+  "temperature": 1500,
+  "time": 130
+}

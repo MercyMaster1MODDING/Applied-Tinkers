@@ -4,5 +4,8 @@
   "modifier.applied_tinkers.phoenix.description": "Brings you back to half a heart after death",
   "item.applied_tinkers.fluid_cannon": "Fluid Cannon",
   "item.applied_tinkers.piggy_backpack": "Piggy Backpack",
-  "item.applied_tinkers.backpack_core": "Backpack Core"
+  "item.applied_tinkers.backpack_core": "Backpack Core",
+  "item.applied_tinkers.blacksteel_ingot": "Blacksteel Ingot",
+  "item.applied_tinkers.pitch_blacksteel_ingot": "Pitch Blacksteel Ingot"
+
 }

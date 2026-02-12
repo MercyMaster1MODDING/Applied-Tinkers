@@ -22,5 +22,6 @@ public class DataGenerators {
         String mod_id = AppliedTinkers.MOD_ID;
 
         generator.addProvider(event.includeServer(), new ModDatagen(packOutput, lookupProvider));
+
     }
 }

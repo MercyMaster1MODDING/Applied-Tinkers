@@ -7,6 +7,22 @@
     {
       "type": "single",
       "resource": "applied_tinkers:block/liquid_essence_of_rebirth_flow"
+    },
+    {
+      "type": "single",
+      "resource": "applied_tinkers:block/molten_pitch_blacksteel"
+    },
+    {
+      "type": "single",
+      "resource": "applied_tinkers:block/molten_pitch_blacksteel_flowing"
+    },
+    {
+      "type": "single",
+      "resource": "applied_tinkers:block/molten_blacksteel"
+    },
+    {
+      "type": "single",
+      "resource": "applied_tinkers:block/molten_blacksteel_flowing"
     }
   ]
 }

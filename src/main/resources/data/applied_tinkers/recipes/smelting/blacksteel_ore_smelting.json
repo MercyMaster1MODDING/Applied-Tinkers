@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "applied_tinkers:blacksteel_ore"
+  },
+  "result": "applied_tinkers:blacksteel_ingot",
+  "experience": 10,
+  "cookingtime": 100
+}

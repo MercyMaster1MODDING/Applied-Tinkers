@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "applied_tinkers:blacksteel",
+  "temperature": 1500,
+  "result": {
+    "fluid": "applied_tinkers:molten_blacksteel",
+    "amount": 100
+  }
+}

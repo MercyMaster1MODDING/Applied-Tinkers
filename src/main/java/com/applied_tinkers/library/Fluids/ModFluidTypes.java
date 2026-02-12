@@ -15,6 +15,12 @@ public class ModFluidTypes {
     public static final RegistryObject<FluidType> FLUID_ESSENCE_TYPE =
             FLUID_TYPES.register("fluid_essence_type", EssenceFluidType::new);
 
+    public static final RegistryObject<FluidType> MOLTEN_BLACKSTEEL_FLUID_TYPE =
+            FLUID_TYPES.register("molten_blacksteel_fluid_type", MoltenBlacksteelFluidType::new);
+
+    public static final RegistryObject<FluidType> MOLTEN_PITCH_BLACKSTEEL_FLUID_TYPE =
+            FLUID_TYPES.register("molten_pitch_blacksteel_fluid_type", MoltenPitchBlacksteelFluidType::new);
+
     public static void register(IEventBus eventBus) {
         FLUID_TYPES.register(eventBus);
     }

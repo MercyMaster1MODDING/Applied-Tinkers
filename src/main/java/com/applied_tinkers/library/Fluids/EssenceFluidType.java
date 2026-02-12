@@ -25,6 +25,7 @@ public class EssenceFluidType extends FluidType {
             public ResourceLocation getFlowingTexture() {
                 return new ResourceLocation(AppliedTinkers.MOD_ID, "block/liquid_essence_of_rebirth_flow");
             }
+
         });
     }
 }

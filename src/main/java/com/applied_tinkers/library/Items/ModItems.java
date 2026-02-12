@@ -1,10 +1,12 @@
 package com.applied_tinkers.library.Items;
 
 import com.applied_tinkers.library.AppliedTinkers;
+import com.applied_tinkers.library.Blocks.ModBlocks;
 import com.applied_tinkers.library.Fluids.ModFluids;
 import com.applied_tinkers.library.Items.FluidCannon.Ammo.DefaultAmmo.WaterAmmo;
 import com.applied_tinkers.library.Items.FluidCannon.Ammo.FluidCannonAmmoItem;
 import com.applied_tinkers.library.Items.FluidCannon.FluidCannonItem;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -32,7 +34,7 @@ public class ModItems {
     //The fluid cannon takes fluids from the piggy backpack and other tanks in the player's inventory
     //and it solidifies them into balls/cannons
     public static final RegistryObject<FluidCannonItem> FLUID_CANNON = ITEMS.register("fluid_cannon",
-            () -> new FluidCannonItem(new Item.Properties()));
+            () -> new FluidCannonItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<FluidCannonAmmoItem> FLUID_CANNON_AMMO = ITEMS.register("fluid_cannon_ammo",
             () -> new FluidCannonAmmoItem(new Item.Properties()));
@@ -48,6 +50,34 @@ public class ModItems {
                                     .craftRemainder(Items.BUCKET)
                                     .stacksTo(1)
                     ));
+
+    public static final RegistryObject<Item> MOLTEN_BLACKSTEEL_BUCKET =
+            ITEMS.register("molten_blacksteel_bucket",
+                    () -> new BucketItem(
+                            ModFluids.MOLTEN_BLACKSTEEL,
+                            new Item.Properties()
+                                    .craftRemainder(Items.BUCKET)
+                                    .stacksTo(1)
+                    ));
+
+    public static final RegistryObject<Item> MOLTEN_PITCH_BLACKSTEEL_BUCKET =
+            ITEMS.register("molten_pitch_blacksteel_bucket",
+                    () -> new BucketItem(
+                            ModFluids.MOLTEN_PITCH_BLACKSTEEL,
+                            new Item.Properties()
+                                    .craftRemainder(Items.BUCKET)
+                                    .stacksTo(1)
+                    ));
+
+    public static final RegistryObject<Item> BLACKSTEEL_INGOT = ITEMS.register("blacksteel_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> PITCH_BLACKSTEEL_INGOT = ITEMS.register("pitch_blacksteel_ingot",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<BlockItem> BLACKSTEEL_ORE = ITEMS.register("blacksteel_ore",
+            () -> new BlockItem(ModBlocks.BLACKSTEEL_ORE.get(), new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

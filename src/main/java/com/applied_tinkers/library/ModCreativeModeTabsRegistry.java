@@ -20,6 +20,8 @@ public class ModCreativeModeTabsRegistry {
                     .displayItems((itemDisplayParameters, output) -> {
 
                         output.accept(ModItems.PHOENIX_FEATHER.get());
+                        output.accept(ModItems.BLACKSTEEL_INGOT.get());
+                        output.accept(ModItems.PITCH_BLACKSTEEL_INGOT.get());
 
                         output.accept(ModItems.BACKPACK_CORE.get());
                         output.accept(ModItems.FLUID_CANNON.get());
@@ -28,6 +30,9 @@ public class ModCreativeModeTabsRegistry {
                         output.accept(ModItems.WATER_FLUID_CANNON_AMMO.get());
 
                         output.accept(ModItems.LIQUID_ESSENCE_OF_REBIRTH_BUCKET.get());
+                        output.accept(ModItems.MOLTEN_BLACKSTEEL_BUCKET.get());
+
+                        output.accept(ModItems.BLACKSTEEL_ORE.get());
                     })
                     .build());
 }

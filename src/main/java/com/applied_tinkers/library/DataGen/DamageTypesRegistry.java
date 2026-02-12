@@ -1,4 +1,4 @@
-package com.applied_tinkers.library.DamageSources;
+package com.applied_tinkers.library.DataGen;
 
 import com.applied_tinkers.library.AppliedTinkers;
 import net.minecraft.core.RegistrySetBuilder;
@@ -18,18 +18,16 @@ public class DamageTypesRegistry {
                     new ResourceLocation(AppliedTinkers.MOD_ID, "fluid_cannon")
             );
 
-    public static final RegistrySetBuilder BUILDER =
-            new RegistrySetBuilder()
-                    .add(Registries.DAMAGE_TYPE, context -> {
-                        context.register(
-                                FLUID_CANNON,
-                                new DamageType(
-                                        "fluid_cannon",
-                                        DamageScaling.NEVER,
-                                        0.2F,
-                                        DamageEffects.HURT,
-                                        DeathMessageType.DEFAULT
-                                )
-                        );
-                    });
+    public static void bootstrap(net.minecraft.data.worldgen.BootstapContext<DamageType> context) {
+        context.register(
+                FLUID_CANNON,
+                new DamageType(
+                        "fluid_cannon",
+                        DamageScaling.NEVER,
+                        0.2F,
+                        DamageEffects.HURT,
+                        DeathMessageType.DEFAULT
+                )
+        );
+    }
 }

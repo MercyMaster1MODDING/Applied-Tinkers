@@ -1,2 +1,5 @@
-// 1.20.1	2026-02-09T17:04:34.4237839	Registries
+// 1.20.1	2026-02-11T22:30:16.2101361	Registries
 c5757610fc13d6b8398aa8105366c8800fecf903 data/applied_tinkers/damage_type/fluid_cannon.json
+5ff0305a600e7991f5d67d93f323b2a0d9b88964 data/applied_tinkers/forge/biome_modifier/add_blacksteel_ore.json
+53ab6ca76579229cc9a813f0bb15670185460acb data/applied_tinkers/worldgen/configured_feature/blacksteel_ore_key.json
+a0cbf7941d4c89170b1fd5dddc1c12e33899d9b2 data/applied_tinkers/worldgen/placed_feature/blacksteel_ore_placed.json

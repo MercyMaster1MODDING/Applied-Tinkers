@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "applied_tinkers:item/pitch_blacksteel_ingot"
+  }
+}
